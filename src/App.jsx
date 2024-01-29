@@ -7,12 +7,10 @@ function App() {
   const storedShowWelcome = localStorage.getItem('show-welcome');
   const [showWelcome, setShowWelcome] = useState(storedShowWelcome ? storedShowWelcome === 'true' : true);
 
-  const updateWelcomeState = () => {
+  const updateWelcomeState = (showAgain) => {
+    localStorage.setItem('show-welcome', showAgain);
     setShowWelcome(false);
   };
-  useEffect(() => {
-    localStorage.setItem('show-welcome', showWelcome.toString());
-  }, [showWelcome]);
 
   // const [markdownText, setMarkdownText] = useState('# Введите свой текст здесь');
 
