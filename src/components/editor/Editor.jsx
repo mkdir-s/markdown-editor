@@ -4,10 +4,11 @@ import './index.scss';
 import * as Marked from 'marked';
 
 function Editor() {
-  const [markdownText, setMarkdownText] = useState('# Введите свой текст здесь');
+  const [markdownText, setMarkdownText] = useState('# Example of text');
 
   useEffect(() => {
     const htmlText = Marked.marked(markdownText, { sanitize: true });
+    console.log(htmlText)
     document.getElementById('preview').innerHTML = htmlText;
   }, [markdownText]);
 
